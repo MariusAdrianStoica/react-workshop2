@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useParams, useLocation, Redirect } from 'react-router-dom';
+import CrudDemo, { PersonDetails } from './CrudDemo';
 
 const DemoRouter = () => {
     return (
@@ -11,6 +12,9 @@ const DemoRouter = () => {
             <Route path="/home" component={Home}/>;
             <Route path="/person" component={Person}/>;
             <Route path="/about" component={About}/>;
+            <Route path="/crud" component={CrudDemo}/>;
+            <Route path="/details/:id" component={PersonDetails} />
+
 
 
             <Route component={NotFound}/>
@@ -62,11 +66,11 @@ const NotFound = ()=> {
 const Header = ()=> {
 
     return (
-        <ul className='nav nav-pills nav-fill bg-dark text-white'>
-            <li className='nav-item nav-home'>
-                <Link className='nav-link active' to="/">Welcome</Link>
-            </li>
+        <nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
+            <div className="container-fluid">
+            <Link  className="navbar-brand" to="/">React</Link>
 
+        <ul className='navbar-nav me-auto'>
             <li className='nav-item'>
                 <Link className='nav-link' to="/home">Home</Link>  
             </li>
@@ -76,9 +80,18 @@ const Header = ()=> {
             </li>
 
             <li className='nav-item'>
-                <Link className='nav-link' to="/about">About</Link>    
+                <Link className='nav-link' to="/about">About us</Link>    
             </li>
+            <li className='nav-item'>
+                <Link className='nav-link' to="/crud">Crud</Link>    
+            </li>
+            <form className="d-flex">
+              //<Link className="btn btn-primary" to="/person">Sign Up</Link>
+            //</form>
+    
         </ul>
+        </div>
+        </nav>
 
     );
 }
